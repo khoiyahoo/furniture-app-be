@@ -44,3 +44,15 @@ export const createProduct = async (req, res) => {
     })
   }
 }
+
+export const searchProduct = async (req, res) => {
+  try {
+    const response = await services.searchProduct(req.params.key)
+    return res.status(200).json(response)
+  } catch (err) {
+    return res.status(500).json({
+      err: -1,
+      msg: 'Failed at one product controller: ' + error,
+    })
+  }
+}
